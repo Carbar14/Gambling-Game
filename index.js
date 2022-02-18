@@ -26,6 +26,11 @@ resetButton = document.getElementById("flipAgain");
 resetButton.onclick = function(){bringBackAfterFlip()}
 resetButton.style.display = "none"
  
+betUpButton = document.getElementById("betUp");
+betUpButton.onclick = function(){betUp()}
+
+betDownButton = document.getElementById("betDown");
+betDownButton.onclick = function(){betDown()}
 //Text Thingys
 moneyDisplay = document.getElementById("moneyHeader");
 moneyDisplay.innerHTML = `Money: ${money}`;
@@ -42,13 +47,13 @@ function flipCoin(bet) {
         //show heads image
         tailsImage.style.display = "block";
         if (pick == flip) {
-            showThing("winText")
+            win()
         }
     } else if(flip == 1){
         //show tails image
         headsImage.style.display = "block";
         if (pick == flip) {
-            showThing("winText")
+            win()
         }
     }
     showThing("flipAgain")
@@ -58,12 +63,15 @@ function pickHeads() {
     pick = 1;
     hideThing("pickButtons");
     showThing("headsPick")
+    doBet()
 }
+
 
 function pickTails() {
     pick = 2;
     hideThing("pickButtons");
     showThing("tailsPick")
+    doBet()
 }
 
 function hideThing(id) {
@@ -85,4 +93,33 @@ function bringBackAfterFlip() {
     hideThing("winText")
     hideThing("headsPick")
     hideThing("tailsPick")
+    showThing("bet")
+}
+
+function betUp(){
+    if(bet >= money){
+    }else {
+        bet++
+    }
+    document.getElementById("betText").innerHTML = `${bet}`
+}
+
+function betDown(){
+    if(bet >= 1){
+        bet--
+
+    }
+    document.getElementById("betText").innerHTML = `${bet}`
+}
+
+function doBet(){
+    hideThing("bet")
+    money -= bet
+    moneyDisplay.innerHTML = `Money: ${money}`;
+}  
+
+function win(){
+    showThing("winText")
+            money += bet*2
+            moneyDisplay.innerHTML = `Money: ${money}`;
 }

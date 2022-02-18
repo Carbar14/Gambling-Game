@@ -1,3 +1,30 @@
 .fontIncrease {
     font-size: 50px; 
 }
+
+.squareBigButton {
+    width: 50px;
+    height: 50px;
+}
+
+#betUp {
+    background-color: chartreuse;
+    font-size: 25px;
+}
+
+#betDown {
+    background-color: crimson;
+    font-size: 25px;
+}
+
+#betText {
+    font-size: 25px;
+}
+
+#headsButton {
+    height: 50px;
+}
+
+#tailsButton {
+    height: 50px;
+}
