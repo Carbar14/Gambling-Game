@@ -94,6 +94,8 @@ function bringBackAfterFlip() {
     hideThing("headsPick")
     hideThing("tailsPick")
     showThing("bet")
+    bet = 0;
+    document.getElementById("betText").innerHTML = `${bet}`
 }
 
 function betUp(){
@@ -122,4 +124,5 @@ function win(){
     showThing("winText")
             money += bet*2
             moneyDisplay.innerHTML = `Money: ${money}`;
+           
 }
